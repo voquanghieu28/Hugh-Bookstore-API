@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const bookController = require('../controllers/bookAPIController')
+const bookAPIController = require('../controllers/bookAPIController')
 
-router.get('/', bookController.getAll)
-router.get('/id', bookController.getById)
-router.get('/name', bookController.getByName)
-router.get('/insert', bookController.insert)
-router.get('/criteria', bookController.getByCriteria)
+router.get('/', bookAPIController.getAll)
+router.get('/id', bookAPIController.getById)
+router.get('/name', bookAPIController.getByName)
+router.get('/insert', bookAPIController.insert)
+router.get('/criteria', bookAPIController.getByCriteria)
 
-module.exports = router;
+module.exports = router

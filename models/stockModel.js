@@ -19,8 +19,7 @@ module.exports = class AuthorModel {
         return dbConnection.query('SELECT * FROM stock', callback)
     }
 
-    static getByID(id, callback) {
+    static getByID(id, callback) { 
         return dbConnection.query('SELECT * FROM stock WHERE book_id = ?', id, callback)
     }
-
 }

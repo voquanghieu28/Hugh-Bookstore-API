@@ -1,0 +1,70 @@
+<%- include ('partials/header.ejs'); -%>
+    <div class="container ">   
+        <table class="table table-hover" >
+            <thead class="thead-dark ">
+              <tr>          
+                <th scope="col" class="col col-md-3 col-xs-1"></th>
+                <th scope="col" class="col col-md-2 col-xs-4">IMAGE</th>
+                <th scope="col" class="col col-md-4 col-xs-4">REVIEW VIDEO</th>
+                <th scope="col" class="col col-md-3 col-xs-3">SUMMARY</th>   
+              </tr>
+            </thead>
+            <tbody>
+              <% data.forEach((item)=>{%> 
+                <tr>     
+                  <td scope="row" style="vertical-align: middle;">
+                    <h2><%=item.name%></h2>
+                    <h4><i><%=item.author_name%></i></h4>
+
+                    <br><br>
+                    <i><b>Price:</b> $<%=item.price%></i>
+                    <br><i><b>Publish date:</b> <%=item.publish_date%></i>
+                    <br><i><b>Publishser:</b> <%=item.publisher_name%></i>
+                    <br><i><b>Publish barcode:</b> <%=item.barcode%></i>
+                  </td>
+                  <td style="vertical-align: middle;"><img style="display:block;" src=<%=item.image_url%> alt=""></td>
+                  <td style="vertical-align: middle;">     
+                    <video controls>
+                      <source src=<%=item.review_video_url%> type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <a class="review-video-link" href=<%=item.review_video_url%>>Watch review!</a>
+                  </td>
+                  <td style="vertical-align: middle;"><p><%=item.summary%></p></td>         
+                </tr> 
+              <%});%>
+            </tbody>    
+        </table> 
+      </div>
+<%- include ('partials/footer.ejs'); -%>
+
+<style>
+  table img, video{
+    display:block; 
+    width:100%; 
+    height:auto;
+  }
+  table td {
+    word-wrap: break-word
+  }
+  
+  .review-video-link {
+    display: none;
+  }
+
+  @media
+	  only screen 
+    and (max-width: 700px),  (max-device-width: 1024px)  {
+      table, thead, th, td, tr, tbody {
+        display: block;
+      }
+
+      thead, th, video {
+         display: none;
+      }
+
+      .review-video-link {
+        display: contents;
+      }
+	  }
+</style>

@@ -29,5 +29,8 @@ var formatDataAndResponse = (req, res, error, rawData) => {
         }
     })
 
-    res.json(responeData)   
+    res.render('author', {
+        page : 'Author',
+        data : responeData
+    })   
 }

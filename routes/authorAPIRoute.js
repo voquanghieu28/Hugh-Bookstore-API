@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const authorController = require('../controllers/authorAPIController')
+const authorAPIController = require('../controllers/authorAPIController')
 
-router.get('/', authorController.getAll)
-router.get('/id', authorController.getById)
-router.get('/name', authorController.getByName)
-router.get('/insert', authorController.insert)
+router.get('/', authorAPIController.getAll)
+router.get('/id', authorAPIController.getById)
+router.get('/name', authorAPIController.getByName)
+router.get('/insert', authorAPIController.insert)
 
-module.exports = router;
+module.exports = router

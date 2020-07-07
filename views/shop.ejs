@@ -1,0 +1,34 @@
+<%- include ('partials/header.ejs'); -%>
+    <div class="container">
+
+        <div class="row">   
+          <% data.forEach((item)=>{%> 
+            <div class="col-sm-4 text-center">
+                <a class="thumbnail" href="#"><img src=<%=item.image_url%> class="img-responsive" alt="Responsive image"></a>
+                <div class="text-right">
+                  <a href="#" title="Book Info" data-toggle="popover" data-placement="top"  id="popoverInfo"
+                        data-content="<i><h4><b>Publisher:</b><%=item.publisher_name%> </h4></i><i><h4><b>Barcode:</b><%=item.barcode%> </h4></i><i><h4><b>Summary:</b><%=item.summary%> </h4></i> ">
+                        More Info
+                  </a>
+                </div>
+                <div class="text-center">
+                  <h1>$<%=item.price%></h1>
+                  <h3><%=item.name%></h3>
+                  <h4><i>- <%=item.author_name%> -</i></h4>        
+                </div>
+            </div>
+          <%});%>         
+        </div> 
+
+    </div>
+<%- include ('partials/footer.ejs'); -%>
+
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover({container: 'body',html: true});   
+
+    //prevent popover jump to the top of the page when clicked
+    $('a#popoverInfo').on('click', function(e) {e.preventDefault(); return true;});
+  });
+</script>

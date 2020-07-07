@@ -1,0 +1,25 @@
+<%- include ('partials/header.ejs'); -%>
+
+    <div class="container "> 
+        <table class="table table-hover" >
+            <thead class="thead-dark ">
+              <tr>  
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">PHONE</th>
+                <th scope="col">ADDRESS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data.forEach((item)=>{%> 
+                <tr>         
+                    <td scope="row" style="vertical-align: middle;"><%=item.id%></td>
+                    <td style="vertical-align: middle;"><%=item.name%></td>
+                    <td style="vertical-align: middle;"><%=item.phone%></td>
+                    <td style="vertical-align: middle;"><%=item.address%></td>
+                </tr> 
+              <%});%>
+            </tbody>  
+        </table>
+    </div>
+<%- include ('partials/footer.ejs'); -%>

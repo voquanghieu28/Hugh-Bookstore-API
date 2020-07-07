@@ -20,7 +20,7 @@ exports.getByCriteria = (req, res) =>
 
 exports.insert = (req, res) => {
     console.log(req.query)
-    var newBook = new BookModel(req.query.name || null,
+    const newBook = new BookModel(req.query.name || null,
         req.query.barcode       || null, 
         req.query.publish_date  || null, 
         req.query.price         || null, 
@@ -61,7 +61,8 @@ var formatDataAndResponse = (req, res,error, rawData) => {
         }
     })
     
-    res.json(responeData)
+    res.render('book', {
+        page : 'Book',
+        data : responeData
+    })
 }
-
-

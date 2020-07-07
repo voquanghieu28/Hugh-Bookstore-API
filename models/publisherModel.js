@@ -22,7 +22,5 @@ module.exports = class PublisherModel {
 
     static getByName(name, callback) {
         return dbConnection.query("SELECT * FROM publisher WHERE name LIKE CONCAT('%', ?, '%') ", name, callback)
-    }
-
-    
+    } 
 }

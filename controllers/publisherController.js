@@ -3,6 +3,7 @@ const PublisherModel = require('../models/publisherModel')
 exports.getAll = (req, res) => 
     PublisherModel.getAll((error, results, fields) => formatDataAndResponse(req, res, error, results))
 
+
 exports.getById = (req, res) => 
     PublisherModel.getByID(req.query.value, (error, results, fields) => formatAndResponsePublisher(req, res, error, results))
 
@@ -37,7 +38,8 @@ var formatDataAndResponse = (req, res, error, rawData) => {
         }
     })
 
-    res.json(responeData)
+    res.render('publisher', {
+        page : 'Publisher',
+        data : responeData
+    })
 }
-
-

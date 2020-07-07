@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const bookController = require('../controllers/stockAPIController')
+const bookAPIController = require('../controllers/stockAPIController')
 
-router.get('/', bookController.getAll)
-router.get('/id', bookController.getById)
+router.get('/', bookAPIController.getAll)
+router.get('/id', bookAPIController.getById)
 
-module.exports = router;
+module.exports = router

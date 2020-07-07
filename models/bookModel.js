@@ -19,19 +19,19 @@ module.exports = class BookModel {
     }
 
     static getAll(callback) {
-        return dbConnection.query('SELECT * FROM book', callback)
+        return dbConnection.query('SELECT * FROM book_view', callback)
     }
 
     static getByID(id, callback) {
-        return dbConnection.query('SELECT * FROM book WHERE id = ?', id, callback)
+        return dbConnection.query('SELECT * FROM book_view WHERE id = ?', id, callback)
     }
 
     static getByName(name, callback) {
-        return dbConnection.query("SELECT * FROM book WHERE name LIKE CONCAT('%', ?, '%') ", name, callback)
+        return dbConnection.query("SELECT * FROM book_view WHERE name LIKE CONCAT('%', ?, '%') ", name, callback)
     }
 
     static getByCriteria(criterias, callback) {
-        var query = "SELECT * FROM book WHERE "
+        var query = "SELECT * FROM book_view WHERE "
         var parameters = []
         console.log(Object.values(criterias));
         if (criterias.name != undefined) {
@@ -55,11 +55,11 @@ module.exports = class BookModel {
             parameters.push(criterias.price)
         }
         if (criterias.author_id != undefined) {
-            query += 'author_id = ? AND '
+            query += 'author_name = ? AND '
             parameters.push(criterias.author_id)
         }
         if (criterias.publish_id != undefined) {
-            query += 'publisher_id = ? AND '
+            query += 'publisher_name = ? AND '
             parameters.push(criterias.publisher_id)
         }
 

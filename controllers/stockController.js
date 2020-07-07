@@ -7,7 +7,8 @@ exports.getById = (req, res) =>
     StockModel.getByID(req.query.value, (error, results, fields) => formatDataAndResponse(req, res, error, results))
 
 exports.insert = (req, res) => {
-    const newStock = new StockModel(
+
+    var newStock = new StockModel(
         req.query.book_id   ||null, 
         req.query.amount    ||null,
         req.query.shelve    ||null,
@@ -23,7 +24,6 @@ exports.insert = (req, res) => {
 
 var formatDataAndResponse = (req, res, error, rawData) => {
     if (error) throw error
-    
 
     const responeData = rawData.map(item => {  
         const formatLastDate = new Date(item.last_date).toLocaleDateString()
@@ -38,5 +38,8 @@ var formatDataAndResponse = (req, res, error, rawData) => {
         }
     })
 
-    res.json(responeData)
+    res.render('stock', {
+        page : 'Stock',
+        data : responeData
+    })
 }

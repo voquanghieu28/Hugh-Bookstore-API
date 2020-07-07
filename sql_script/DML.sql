@@ -1,3 +1,4 @@
+USE hugh_bookstore;
 
 
 SET SQL_SAFE_UPDATES=0;
@@ -15,7 +16,6 @@ INSERT INTO author(name, main_category) VALUES ('John Nguyen', 'Programming');
 INSERT INTO author(name, main_category) VALUES ('Jimmy Joe', 'Cooking');
 INSERT INTO author(name, main_category) VALUES ('Sandra Stan', 'Thriller');
 INSERT INTO author(name, main_category) VALUES ('Ocean Cox', 'History');
-
 
 
 INSERT INTO publisher(name, address, phone) 

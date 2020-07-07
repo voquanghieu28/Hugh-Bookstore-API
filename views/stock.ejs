@@ -1,0 +1,26 @@
+<%- include ('partials/header.ejs'); -%>
+    <div class="container ">  
+        <table class="table table-hover" >
+            <thead class="thead-dark ">
+              <tr>  
+                <th scope="col">BOOK ID</th>
+                <th scope="col">AMOUNT</th>
+                <th scope="col">SHELVE</th>
+                <th scope="col">LAST DATE</th>
+                <th scope="col">NEXT DATE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data.forEach((item)=>{%> 
+                <tr>   
+                    <td scope="row" style="vertical-align: middle;"><%=item.book_id%></td>
+                    <td style="vertical-align: middle;"><%=item.amount%></td>
+                    <td style="vertical-align: middle;"><%=item.shelve%></td>
+                    <td style="vertical-align: middle;"><%=item.last_date%></td>
+                    <td style="vertical-align: middle;"><%=item.next_date%></td>
+                </tr> 
+              <%});%>
+            </tbody>      
+          </table>
+    </div>
+<%- include ('partials/footer.ejs'); -%>
